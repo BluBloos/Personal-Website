@@ -1,0 +1,20 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+}
+
+.Header span {
+  color: var(--accent-color);
+}
+
+.Header a {
+  color: var(--text-color-primary);
+}
+
+.Header a:hover {
+  color: var(--accent-color);
+}

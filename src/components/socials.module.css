@@ -1,0 +1,10 @@
+.Social {
+  width: 28px;
+  height: 28px;
+  transition: .25s ease;
+}
+
+.Social:hover {
+  width: 32px;
+  height: 32px;
+}
