@@ -42,8 +42,7 @@ function Header(props) {
         <div class="CodeFont" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
           <div style={{paddingLeft: 20}}><span>01. </span><Link to="/#About">About</Link></div>
           <div style={{paddingLeft: 20}}><span>02. </span><Link to="/#Projects">Projects</Link></div>
-          <div style={{paddingLeft: 20}}><span>03. </span><Link to="/#Experience">Experience</Link></div>
-          <div style={{paddingLeft: 20}}><span>04. </span><Link to="/#contact">Contact</Link></div>
+          <div style={{paddingLeft: 20}}><span>03. </span><Link to="/#Contact">Contact</Link></div>
           <div style={{paddingLeft: 20}}><button>Resume</button></div>
         </div>
       </div>
