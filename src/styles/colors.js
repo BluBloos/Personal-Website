@@ -1,3 +1,4 @@
+//export const BG_COLOR = "#FBFBFB";
 export const BG_COLOR = "white";
 export const TEXT_COLOR_PRIMARY = "black";
 export const TEXT_COLOR_SECONDARY = "grey";

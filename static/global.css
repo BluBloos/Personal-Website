@@ -9,7 +9,7 @@
 }
 
 html {
-  background-color: white;
+  background-color: var(--bg-color);
   font-size: '18px';
   line-height: 1.666;
 
