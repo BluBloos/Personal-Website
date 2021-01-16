@@ -12,9 +12,11 @@ import Layout from "../components/layout"
 import About from "../components/about.js"
 import Marketing from "../components/marketing"
 import Projects from "../components/projects"
+import Contact from "../components/contact"
 
-import { SetColorVars } from "../styles/colors.js"
+import { SetColorVars, TEXT_COLOR_SECONDARY } from "../styles/colors.js"
 import SectionHeader from "../components/sectionheader.js"
+import footerStyles from "./footer.module.css"
 
 import AOS from "aos"
 
@@ -70,18 +72,22 @@ class Home extends React.Component {
           <SectionHeader num="02" name="Projects" />
           <Projects numprojects={3}/>
 
-          <h1 id="exp">
-          .Experience
-          </h1>
+          <div style={{
+            margin: "40px 40px 200px 40px"
+          }}>
+            <SectionHeader num="03" name="Contact" center={true} />
+            <Contact />
+          </div>
 
-          <h1 id="contact">
-          .Contact
-          </h1>
-          <a href="mailto:noah.cabral@queensu.ca">
-            <button>
-            Contact
-            </button>
-          </a>
+          <div style={{
+            textAlign: "center"
+          }}>
+            <a className={footerStyles.footer}
+            href="https://github.com/BluBloos/Personal-Website">
+              © 2021, Built with ❤ by Noah Cabral
+            </a>
+          </div>
+
         </div>
       </Layout>
     );
