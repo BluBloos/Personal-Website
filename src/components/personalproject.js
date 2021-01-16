@@ -18,13 +18,19 @@ export default function PersonalProject(props) {
     </p>);
 
   var elem2 = (
-
-    <img style={{
-      width: 520,
-      height: 380,
+    <div style={{
       borderRadius: 20,
       boxShadow: "0px 0px 25px 1px lightgrey",
-    }} src="pokemondemo_thumb.PNG" />
+      backgroundImage: `url(${props.thumb})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
+    }}>
+    <div style={{
+      width: 520,
+      height: 380,
+    }}>
+    </div>
+    </div>
 
   );
 

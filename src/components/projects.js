@@ -68,18 +68,40 @@ export default function Projects(props) {
   // NOTE: I could not be bothered w/ data layer of Gatsby
   // for a small project such as this website!
   const project_list = [{
-    name: "C Compiler",
+    name: "Plasma Compiler",
     socials: {
-      github: "Hello World"
+      github: "https://github.com/BluBloos/plasmacompiler"
     },
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  }, {
-    name: "Game Engine",
+    thumb: "plasmacompiler_thumb.PNG",
+    desc: "Friendly C compiler written entirely in Python. It does not comply with any standards for the C language, but man can this thing compile! It works by converting the C source to x86 assembly, then using third party tools to assemble and link the program. The code is fully custom, including all the data structures and algorithms. Some basic features include operator precedence, recursion, ternary operator support, etc."
+  },
+  {
+    name: "Falcon OS",
     socials: {
-      github: "Hello, World"
+      github: "https://github.com/BluBloos/Falcon-OS"
     },
-    desc: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-  }];
+    thumb: "falcon_os_thumb.PNG",
+    desc: "Falcon OS is my attempt at writing an operating system. Written in x86 assembly and C/C++, my operating system packs a whopping two whole features!!! Behind the scenes, the text is printed to the screen via VGA text mode, and there is interrupt driven keyboard support via the PS/2 controller IO ports"
+  },
+  {
+    name: "Collage Creator",
+    socials: {
+      github: "https://github.com/BluBloos/collage-creator"
+    },
+    thumb: "collage_creator_thumb.PNG",
+    desc: "Collage Creator is a simple desktop app to create collages with your favourite images! You can drag and drop, scale and crop, and apply filters to the images. The app runs as a python script loaded by a custom platform layer written in C. The platform layer runs the app via the Python/C API, and the python scripts makes use of the Python Imaging Library."
+  },
+   {
+    name: "PongGL",
+    socials: {
+      github: "https://github.com/BluBloos/pong-gl"
+    },
+    thumb: "pong_gl_thumb.PNG",
+    desc: "Attempted game engine, but ultimately an overengineered version of pong. The project was written in C/C++, with minimal to no library usage, and it uses the OpenGL graphics API."
+  },
+
+
+];
 
   for (var i = 0; i < project_list.length; i++) {
     var current_project = project_list[i];
@@ -89,8 +111,8 @@ export default function Projects(props) {
       }}>
         <div data-aos="fade-up"
              data-aos-duration="1000">
-          <PersonalProjectHeader name={current_project.name} socials={current_project.socials} />
-          <PersonalProject imgOnRight={ (i % 2 == 0) } desc={current_project.desc} />
+          <PersonalProjectHeader name={current_project.name} socials={current_project.socials}  />
+          <PersonalProject imgOnRight={ (i % 2 == 0) } desc={current_project.desc} thumb={current_project.thumb} />
         </div>
       </div>
     )
