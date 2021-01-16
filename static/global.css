@@ -58,3 +58,11 @@ a {
 .SecondaryText {
   color: var(--text-color-secondary);
 }
+
+.EpicLink {
+  color: var(--text-color-secondary);
+}
+
+.EpicLink:hover {
+  color: var(--accent-color);
+}

@@ -6,6 +6,10 @@ import {useSpring, animated} from 'react-spring'
 
 import layoutStyles from "./layout.module.css"
 
+import { TEXT_COLOR_SECONDARY } from "../styles/colors.js"
+
+import Socials from "./socials.js"
+
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
@@ -74,6 +78,45 @@ class Layout extends React.Component {
     return (
       <div>
         <Header scrollpos={this.state.scrollpos}/>
+
+        <div style={{
+          writingMode: "vertical-rl",
+          textOrientation: "mixed",
+          position: "fixed",
+          bottom: 0,
+          right: "2em",
+          zIndex: 1
+        }}>
+          <a className={"EpicLink CodeFont"} style={{
+            paddingBottom: 20
+          }} href="mailto:noah.cabral@queensu.ca">
+            noah.cabral@queensu.ca
+          </a>
+          <svg height="100" width="2">
+            <line x1="0" y1="0" x2="0" y2="100" style={{strokeWidth: 3, stroke: TEXT_COLOR_SECONDARY}} />
+          </svg>
+        </div>
+
+        {/*
+        <div style={{
+          writingMode: "vertical-rl",
+          textOrientation: "mixed",
+          position: "fixed",
+          bottom: 0,
+          left: "2em",
+          zIndex: 1
+        }}>
+
+          <Socials github="https://github.com/BluBloos/"
+                   linkedin="https://www.linkedin.com/in/noah-cabral-96b62b1a2/" />
+
+          <svg height="100" width="2">
+            <line x1="0" y1="0" x2="0" y2="100" style={{strokeWidth: 3, stroke: TEXT_COLOR_SECONDARY}} />
+          </svg>
+        </div>
+        */
+        }
+
         <div style={{marginTop:"100px"}}>
           {this.props.children}
         </div>

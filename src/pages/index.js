@@ -16,7 +16,6 @@ import Contact from "../components/contact"
 
 import { SetColorVars, TEXT_COLOR_SECONDARY } from "../styles/colors.js"
 import SectionHeader from "../components/sectionheader.js"
-import footerStyles from "./footer.module.css"
 
 import AOS from "aos"
 
@@ -82,7 +81,7 @@ class Home extends React.Component {
           <div style={{
             textAlign: "center"
           }}>
-            <a className={footerStyles.footer}
+            <a className={"EpicLink"}
             href="https://github.com/BluBloos/Personal-Website">
               © 2021, Built with ❤ by Noah Cabral
             </a>
