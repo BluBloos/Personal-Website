@@ -12,8 +12,8 @@ export default function Contact(props)
       <p style={{
         margin: "3em"
       }}>
-        Please don't hesitate to contact me by phone, e-mail or social media. ☕ <br />
-        Looking forward to hearing from you!
+        Please don't hesitate to contact me by e-mail, phone or social media. ☕ <br />
+        I would love to chat with you!
       </p>
       <a href="mailto:noah.cabral@queensu.ca">
         <button>
