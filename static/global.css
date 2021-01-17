@@ -9,7 +9,7 @@
 }
 
 html {
-  background-color: var(--bg-color);
+  background-color:  var(--bg-color);
   font-size: '18px';
   line-height: 1.666;
 
@@ -23,27 +23,28 @@ html {
 
 body {
   font-family: 'Georgia', 'serif';
+  margin: 0 ;
 }
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif';
-  margin: 0;
-  font-weight: normal;
+  font-family: 'Avenir Next', 'Helvetica Neue', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif' ;
+  margin: 0 ;
+  font-weight: normal ;
 }
 
 button {
-  border: 1px solid;
-  border-radius: 20px;
-  padding: 10px 30px;
-  border-color: var(--accent-color);
-  font-family: var(--code-font);
-  background-color: var(--bg-color);
-  color: var(--accent-color);
-  font-size: 1rem;
-  cursor: pointer;
+  border: 1px solid ;
+  border-radius: 20px ;
+  padding: 10px 30px ;
+  border-color: var(--accent-color) ;
+  font-family: var(--code-font) ;
+  background-color: var(--bg-color) ;
+  color: var(--accent-color) ;
+  font-size: 1rem ;
+  cursor: pointer ;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none ;
 }
 
 .AccentText {

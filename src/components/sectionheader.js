@@ -2,6 +2,10 @@ import React from "react"
 
 import { ACCENT_COLOR } from "../styles/colors.js"
 
+import {
+  isMobile
+} from "react-device-detect";
+
 class SectionHeader extends React.Component {
 
   render() {
@@ -18,22 +22,28 @@ class SectionHeader extends React.Component {
 
     //const {name, num} = this.props;
     return (
-      <div style={_style}>
+      <div>
+
         <div id={this.props.name} style={{
-          height: 100
+          height: 100,
+          width: "100%"
         }} />
 
-        <div style={{
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "flex-end",
-          fontSize: "2em"
-        }}>
-          <h1>
-            <span style={{color: ACCENT_COLOR}} class="CodeFont">{this.props.num}.</span>
-            &nbsp;{this.props.name}
-          </h1>
+        <div style={_style}>
+          <div style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-end",
+            fontSize: "2em",
+            marginLeft: 40
+          }}>
+            <h1>
+              <span style={{color: ACCENT_COLOR}} class="CodeFont">{this.props.num}.</span>
+              &nbsp;{this.props.name}
+            </h1>
+          </div>
         </div>
+
       </div>
     )
   }

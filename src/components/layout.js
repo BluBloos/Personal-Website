@@ -10,6 +10,13 @@ import { TEXT_COLOR_SECONDARY } from "../styles/colors.js"
 
 import Socials from "./socials.js"
 
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
+
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
     <Link to={props.to}>{props.children}</Link>
@@ -20,7 +27,17 @@ const ListLink = props => (
 // when you scroll a little, the height of it changes, and you get a shadow that appears
 // this should happen in an animated fashion w// the spring boi
 
+function GetNavLinks() {
+  var items = []
+  items.push(<div style={{paddingLeft: 20}}><span>01. </span><Link to="/#About">About</Link></div>);
+  items.push(<div style={{paddingLeft: 20}}><span>02. </span><Link to="/#Projects">Projects</Link></div>);
+  items.push(<div style={{paddingLeft: 20}}><span>03. </span><Link to="/#Contact">Contact</Link></div>);
+  items.push(<div style={{paddingLeft: 20}}><button>Resume</button></div>);
+  return items;
+}
+
 function Header(props) {
+
   const _props = useSpring({
     config: {
       tension: 400
@@ -33,6 +50,7 @@ function Header(props) {
       boxShadow: "0px 0px 0px 0px lightgrey"
     }
   })
+
   return (
     <animated.header className={layoutStyles.Header} style={_props}>
       <div style={{
@@ -43,21 +61,79 @@ function Header(props) {
         height: "inherit",
         paddingLeft: 20, paddingRight: 20
       }}>
-        <div class="CodeFont" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
-          <div style={{paddingLeft: 20}}><span>01. </span><Link to="/#About">About</Link></div>
-          <div style={{paddingLeft: 20}}><span>02. </span><Link to="/#Projects">Projects</Link></div>
-          <div style={{paddingLeft: 20}}><span>03. </span><Link to="/#Contact">Contact</Link></div>
-          <div style={{paddingLeft: 20}}><button>Resume</button></div>
-        </div>
+        <BrowserView>
+          <div class="CodeFont" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+            {GetNavLinks()}
+          </div>
+        </BrowserView>
+        <MobileView>
+          <div >
+            <button style={{
+              border: "none"
+            }} onClick={props.onMenuBttn}>
+              <img src="menu.PNG" />
+
+            </button>
+          </div>
+        </MobileView>
       </div>
     </animated.header>
+  )
+}
+
+function GetNavMenu(props) {
+
+  const _props = useSpring({
+    config: {
+      tension: 400
+    },
+    /* right shift, down shift, blur, spread */
+
+    right: (props.navOpen) ? "70px" : "0px",
+    display: (props.navOpen) ? "block" : "none",
+    from: {
+      right: "0px",
+      display: "none"
+
+    }
+  })
+
+  return (
+    <animated.div style={{
+      display: _props.display,
+      position: "fixed",
+      top: 140,
+      right: _props.right,
+      zIndex: 2,
+      backgroundColor: "white",
+      boxShadow: "0px 0px 25px 1px lightgrey",
+      padding: 20
+    }}>
+
+      <div class="CodeFont" style={{
+        display: "flex",
+        flexDirection: "column"
+      }}>
+        <div style={{padding: 10}}><span>01. </span><a onClick={props.onMenuCloseBttn} href="/#About">About</a></div>
+        <div style={{padding: 10}}><span>02. </span><a onClick={props.onMenuCloseBttn} href="/#Projects">Projects</a></div>
+        <div style={{padding: 10}}><span>03. </span><a onClick={props.onMenuCloseBttn} href="/#Contact">Contact</a></div>
+        <div style={{padding: 10}}><button onClick={props.onMenuCloseBttn}>Resume</button></div>
+      </div>
+
+      <button onClick={props.onMenuCloseBttn} style={{
+        border: "none"
+      }}>
+        <img src="menu_close.PNG" />
+      </button>
+
+    </animated.div>
   )
 }
 
 class Layout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {scrollpos: 0};
+    this.state = {scrollpos: 0, navOpen: false};
   }
 
   componentDidMount() {
@@ -68,6 +144,19 @@ class Layout extends React.Component {
     window.removeEventListener('scroll', this.listenToScroll)
   }
 
+  handleMenuBttn = () => {
+    var newState = !this.state.navOpen;
+    this.setState({
+      navOpen: newState
+    })
+  }
+
+  onMenuCloseBttn = () => {
+    this.setState({
+      navOpen: false
+    })
+  }
+
   listenToScroll = () => {
     this.setState({
       scrollpos: window.scrollY,
@@ -75,27 +164,31 @@ class Layout extends React.Component {
   }
 
   render() {
+
     return (
       <div>
-        <Header scrollpos={this.state.scrollpos}/>
+        <Header scrollpos={this.state.scrollpos}
+                onMenuBttn={this.handleMenuBttn} />
 
-        <div style={{
-          writingMode: "vertical-rl",
-          textOrientation: "mixed",
-          position: "fixed",
-          bottom: 0,
-          right: "2em",
-          zIndex: 1
-        }}>
-          <a className={"EpicLink CodeFont"} style={{
-            paddingBottom: 20
-          }} href="mailto:noah.cabral@queensu.ca">
-            noah.cabral@queensu.ca
-          </a>
-          <svg height="100" width="2">
-            <line x1="0" y1="0" x2="0" y2="100" style={{strokeWidth: 3, stroke: TEXT_COLOR_SECONDARY}} />
-          </svg>
-        </div>
+        <BrowserView>
+          <div style={{
+            writingMode: "vertical-rl",
+            textOrientation: "mixed",
+            position: "fixed",
+            bottom: 0,
+            right: "2em",
+            zIndex: 1
+          }}>
+            <a className={"EpicLink CodeFont"} style={{
+              paddingBottom: 20
+            }} href="mailto:noah.cabral@queensu.ca">
+              noah.cabral@queensu.ca
+            </a>
+            <svg height="100" width="2">
+              <line x1="0" y1="0" x2="0" y2="100" style={{strokeWidth: 3, stroke: TEXT_COLOR_SECONDARY}} />
+            </svg>
+          </div>
+        </BrowserView>
 
         {/*
         <div style={{
@@ -117,8 +210,11 @@ class Layout extends React.Component {
         */
         }
 
+        <GetNavMenu navOpen={this.state.navOpen} onMenuCloseBttn={this.onMenuCloseBttn} />
+
         <div style={{marginTop:"100px"}}>
           {this.props.children}
+
         </div>
       </div>
     )

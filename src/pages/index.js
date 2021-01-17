@@ -19,6 +19,12 @@ import SectionHeader from "../components/sectionheader.js"
 
 import AOS from "aos"
 
+import {
+  isMobile
+} from "react-device-detect";
+
+//
+
 class Home extends React.Component {
 
   constructor(props) {
@@ -38,22 +44,10 @@ class Home extends React.Component {
           <link rel="stylesheet" href="global.css" />
           <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         </Helmet>
-        <div style={{ padding: 40 }}>
 
-          <div style={{
-            position: "relative",
-            width: "100%"
-          }}>
-            <Marketing name="Noah Cabral" />
-            <div style={{
-              margin: 0,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end"
-            }}>
-              <img src="Me.PNG" height="660" width="660" alt="" />
-            </div>
-          </div>
+        <div style={{ margin: (isMobile) ? 0 : 40 }}>
+
+          <Marketing name="Noah Cabral" />
 
           <SectionHeader num="01" name="About" />
           <About />
@@ -72,14 +66,15 @@ class Home extends React.Component {
           <Projects numprojects={3}/>
 
           <div style={{
-            margin: "40px 40px 200px 40px"
+            margin: (isMobile) ? "0px 0px 200px 0px" : "40px 40px 200px 40px"
           }}>
-            <SectionHeader num="03" name="Contact" center={true} />
+            <SectionHeader num="03" name="Contact" center={(isMobile) ? false : true} />
             <Contact />
           </div>
 
           <div style={{
-            textAlign: "center"
+            textAlign: "center",
+            margin: (isMobile) ? 40 : 0
           }}>
             <a className={"EpicLink"}
             href="https://github.com/BluBloos/Personal-Website">

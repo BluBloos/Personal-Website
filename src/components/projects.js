@@ -8,6 +8,10 @@ import {TEXT_COLOR_SECONDARY, ACCENT_COLOR} from "../styles/colors.js"
 
 import styles from "./personalproject.module.css"
 
+import {
+  isMobile
+} from "react-device-detect";
+
 function PokemonDemoPlayer(props) {
   return (
     <div style={{
@@ -112,7 +116,7 @@ export default function Projects(props) {
         <div data-aos="fade-up"
              data-aos-duration="1000">
           <PersonalProjectHeader name={current_project.name} socials={current_project.socials}  />
-          <PersonalProject imgOnRight={ (i % 2 == 0) } desc={current_project.desc} thumb={current_project.thumb} />
+          <PersonalProject imgOnRight={ (isMobile) ? false : (i % 2 == 0) } desc={current_project.desc} thumb={current_project.thumb} />
         </div>
       </div>
     )
@@ -120,7 +124,7 @@ export default function Projects(props) {
 
   return (
     <div style={{
-      padding: "80px 0px 20px 20px"
+      padding: "80px 40px 40px 40px"
     }}>
 
         <div data-aos="fade-up"
@@ -130,8 +134,8 @@ export default function Projects(props) {
             socials={{github: "https://github.com/BluBloos/pokemondemo"}} />
 
           <div style={{
-            margin: 40,
-            color: TEXT_COLOR_SECONDARY
+            color: TEXT_COLOR_SECONDARY,
+            margin: (isMobile) ?  0 : 40
           }}>
             <p>
               PokemonDemo is a video game demo written completly in C, with little to no library usasge.
@@ -146,7 +150,7 @@ export default function Projects(props) {
           </div>
 
           <div style={{
-            padding: "40px 40px 0px 40px"
+            padding: (isMobile) ? "40px 0px 0px 0px" : "40px 40px 0px 40px"
           }}>
             <PokemonDemoPlayer />
           </div>
