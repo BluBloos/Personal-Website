@@ -30,7 +30,9 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     SetColorVars();
-    AOS.init();
+    if (typeof document !== `undefined`) {
+      AOS.init();
+    }
   }
 
   render() {
