@@ -53,7 +53,7 @@ export default function About(props) {
           Outside of school (and tech), I enjoy ⛰️ climbing, 🏃 running, and spending time with friends.
         </p>
         <p>
-          If I were to characterize myself in one word, it would be "Ambitious"
+          If I were to characterize myself in one word, it would be "Ambitious".
         </p>
       </div>
     </div>
