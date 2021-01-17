@@ -28,12 +28,11 @@ function PokemonDemoPlayer(props) {
         <iframe scrolling="no" src="pokemondemo.html" width="800" height="450">
         </iframe>
         <pre class="CodeFont">{
-          `The controls are:
+          `NOTE: The game might take a while to load.
+The controls are:
 - WASD to move
 - Z to get through menus and interact with things
 - F to go full screen
-- L to start recording gameplay, L again to stop recording and begin play back
-- Arrow keys to go to different moves (while in battle)
 
 Attach a gamepad to play as player 2:
 - Functionality is not guarenteed as I do not have a wide array of gamepads to test
@@ -77,7 +76,7 @@ export default function Projects(props) {
       github: "https://github.com/BluBloos/plasmacompiler"
     },
     thumb: "plasmacompiler_thumb.PNG",
-    desc: "Friendly C compiler written entirely in Python. It does not comply with any standards for the C language, but man can this thing compile! It works by converting the C source to x86 assembly, then using third party tools to assemble and link the program. The code is fully custom, including all the data structures and algorithms. Some basic features include operator precedence, recursion, ternary operator support, etc."
+    desc: "A C compiler written entirely in Python. It does not comply with any standards for the C language, but it can compile a sufficiently large subset of the C language, at least enough for turing completeness. It works by converting the C source to x86 assembly, then using third party tools to assemble and link the program. The code is fully custom, including all the data structures and algorithms. Some basic features include operator precedence, recursion, ternary operator support, etc."
   },
   {
     name: "Falcon OS",
@@ -85,7 +84,7 @@ export default function Projects(props) {
       github: "https://github.com/BluBloos/Falcon-OS"
     },
     thumb: "falcon_os_thumb.PNG",
-    desc: "Falcon OS is my attempt at writing an operating system. Written in x86 assembly and C/C++, my operating system packs a whopping two whole features!!! Behind the scenes, the text is printed to the screen via VGA text mode, and there is interrupt driven keyboard support via the PS/2 controller IO ports"
+    desc: "Falcon OS is my attempt at writing an operating system, and it was written in x86 assembly and C/C++. Behind the scenes, the text is printed to the screen via VGA text mode, and there is interrupt driven keyboard support via the PS/2 controller IO ports"
   },
   {
     name: "Collage Creator",
@@ -93,7 +92,7 @@ export default function Projects(props) {
       github: "https://github.com/BluBloos/collage-creator"
     },
     thumb: "collage_creator_thumb.PNG",
-    desc: "Collage Creator is a simple desktop app to create collages with your favourite images! You can drag and drop, scale and crop, and apply filters to the images. The app runs as a python script loaded by a custom platform layer written in C. The platform layer runs the app via the Python/C API, and the python scripts makes use of the Python Imaging Library."
+    desc: "Collage Creator is a simple desktop app to create collages with your favourite images! You can drag and drop, scale and crop, and apply filters to the images. The app runs as a python script loaded by a custom platform layer written in C. The platform layer runs the app via the Python/C API, and the python script makes use of the Python Imaging Library."
   },
    {
     name: "PongGL",
@@ -101,7 +100,7 @@ export default function Projects(props) {
       github: "https://github.com/BluBloos/pong-gl"
     },
     thumb: "pong_gl_thumb.PNG",
-    desc: "Attempted game engine, but ultimately an overengineered version of pong. The project was written in C/C++, with minimal to no library usage, and it uses the OpenGL graphics API."
+    desc: "Attempted game engine, but ultimately an overengineered version of pong, the classic arcade game. The project was written using the OpenGL grahics API, and C/C++. With the exception of OpenGL and the stb libraries, there was minimal to no library use."
   },
 
 
@@ -139,13 +138,14 @@ export default function Projects(props) {
           }}>
             <p>
               PokemonDemo is a video game demo written completly in C, with little to no library usasge.
-              This has many implications, for example, all file types (such as .bmp and .wav) are parsed manually.
-              Each pixel is individually blit to the screen (there was no use of OpenGL), and each sample of sound is given thought.
+              This means that all file types are parsed manually, each pixel is individually blit to the screen, and each sample of sound is given thought.
               Everything from memory management, a custom tile map system, to custom asset support is packed into this bundle of joy.
-              Key features include: hot reloading, live looping, a custom tile map editor, and some easter eggs!
+              Key features include: Hot reloading, live looping (desktop version only), and a custom tile map editor!
             </p>
             <p>
-              TLDR; I've gone ahead and ported the game for the web, have a play!
+              TLDR; I've gone ahead and ported the game for the web, have a play! <br />
+              <br />
+              &nbsp; &nbsp; &nbsp; P.S. See if you can find the easter eggs!
             </p>
           </div>
 
