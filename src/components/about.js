@@ -36,29 +36,24 @@ export default function About(props) {
       }}>
         <p>
           I’m Noah, an engineer and software developer in my 2rd year of Engineering Physics @ &nbsp;
-          <a href="https://www.queensu.ca/physics/undergrad-studies/engineering-physics">
+          <a target="_blank" href="https://www.queensu.ca/physics/undergrad-studies/engineering-physics">
             Queen's University
           </a>.
         </p>
         <p>
-          Programming has been a large part of my life since early in high school. I wanted to play a video game,
-          but my parents would have it that it was too innapropriate to play. So I set out to program the game myself.
-          Long story short, my version of the game never saw the light of day, but I was hooked on programming ever since.
-          I've built up a sizable library of projects since then, most of which I've made available on this website.
+          Programming has been a large part of my life since early in high school. I stumbled into video game development,
+          and I was hooked ever since. I've built up a sizable library of projects since then, most of which I've made available on this website.
         </p>
         <p>
-          At school, I've found interest in multiple design teams, most notably QMIND and Queen's Space Engineering Team.
-          These teams have been incredible, and I'm learning things at a rapid rate. I'm overwhemlingy excited to see where
-          they take me.
+          At school, I've found interest in <a href="https://qmind.ca/" target="_blank">QMIND </a>
+           and <a href="qset.ca" target="_blank">Queen's Space Engineering Team</a> (QSET). With these teams I've had the
+           opportunity to expand my portfolio of skills with technologies such as Tensorflow and ROS.
         </p>
         <p>
           Outside of school (and tech), I enjoy ⛰️ climbing, 🏃 running, and spending time with friends.
         </p>
         <p>
-          If I were to summarize myself in one word, it would be "Hungry for the good life"
-        </p>
-        <p>
-          Whoops...a little more than one word there!
+          If I were to characterize myself in one word, it would be "Ambitious"
         </p>
       </div>
     </div>

@@ -45,6 +45,7 @@ button {
 
 a {
   text-decoration: none ;
+  color: var(--accent-color);
 }
 
 .AccentText {
