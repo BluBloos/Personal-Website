@@ -20,7 +20,8 @@ import SectionHeader from "../components/sectionheader.js"
 import AOS from "aos"
 
 import {
-  isMobile
+  isMobile,
+  BrowserView
 } from "../lib/mobile.js";
 
 import AppContext from "../lib/AppContext.js"
@@ -48,42 +49,11 @@ class Home extends React.Component {
     }
   }
 
-  componentDidMount() {
-    if (typeof window !== `undefined`) {
-      window.addEventListener('resize', this.updateWindowSize);
-
-      this.setState({
-        app: { width: window.innerWidth }
-      });
-
-      if (isMobile(this.state.app)) {
-        this.setState({
-          app: { width: 1000 }
-        });
-      } else {
-        this.setState({
-          app: { width: 0 }
-        });
-      }
-
-      this.setState({
-        app: { width: window.innerWidth }
-      });
-
-      this.forceUpdate(); // final force for good
-    }
-  }
-
-  componentWillUnmount() {
-    if (typeof window !== `undefined`) {
-      window.removeEventListener('scroll', this.updateWindowSize);
-    }
-  }
-
   render() {
     return (
       <AppContext.Provider value={this.state.app}>
         <Layout>
+          <BrowserView src={this.updateWindowSize} />
           <Helmet>
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />

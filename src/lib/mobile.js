@@ -42,6 +42,9 @@ class BrowserView extends React.Component {
   updateWindowSize = () => {
     if (typeof window !== `undefined`) {
       this.setState({width :window.innerWidth});
+      if (this.props.src) {
+        this.props.src();
+      }
     }
   }
 
