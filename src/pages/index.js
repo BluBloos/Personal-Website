@@ -41,11 +41,9 @@ class Home extends React.Component {
   }
 
   updateWindowSize = () => {
-    var newState = this.state;
-    if (typeof window !== `undefined`) {
-      newState.app.width = window.innerWidth;
-    }
-    this.setState(newState);
+    this.setState({
+      app: { width: window.innerWidth }
+    });
   }
 
   componentDidMount() {

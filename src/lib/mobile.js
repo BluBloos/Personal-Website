@@ -40,11 +40,9 @@ class BrowserView extends React.Component {
   }
 
   updateWindowSize = () => {
-    var newState = this.state;
     if (typeof window !== `undefined`) {
-      newState.width = window.innerWidth;
+      this.setState({width :window.innerWidth});
     }
-    this.setState(newState);
   }
 
   render() {
@@ -82,11 +80,9 @@ class MobileView extends React.Component {
   }
 
   updateWindowSize = () => {
-    var newState = this.state;
     if (typeof window !== `undefined`) {
-      newState.width = window.innerWidth;
+      this.setState({width :window.innerWidth});
     }
-    this.setState(newState);
   }
 
   render() {
