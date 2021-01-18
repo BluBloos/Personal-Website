@@ -46,6 +46,7 @@ class Home extends React.Component {
       this.setState({
         app: { width: window.innerWidth }
       });
+      this.forceUpdate();
     }
   }
 
