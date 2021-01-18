@@ -51,6 +51,11 @@ class Home extends React.Component {
   componentDidMount() {
     if (typeof window !== `undefined`) {
       window.addEventListener('resize', this.updateWindowSize);
+
+      // resize the window to invoke the EPIC hack of a soln
+      // to get the initial window sizes right
+      window.resizeTo(window.innerWidth, window.innerHeight);
+
     }
   }
 
