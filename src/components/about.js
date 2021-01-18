@@ -47,7 +47,7 @@ export default function About(props) {
         </p>
         <p>
           At school, I've found interest in <a href="https://qmind.ca/" target="_blank">QMIND </a>
-           and <a href="qset.ca" target="_blank">Queen's Space Engineering Team</a> (QSET). With these teams I've had the
+           and <a href="https://qset.ca" target="_blank">Queen's Space Engineering Team</a> (QSET). With these teams I've had the
            opportunity to expand my portfolio of skills with technologies such as Tensorflow and ROS.
         </p>
         <p>
