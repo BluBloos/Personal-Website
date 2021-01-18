@@ -7,41 +7,11 @@ import {
   MobileView,
   isBrowser,
   isMobile
-} from "react-device-detect";
+} from "../lib/mobile.js";
 
-/*
-
-key points:
-
-  I am an engineer at heart -> I got the engineering itch man
-
-
-   - Based in ON Canada
-   - Aspiring maker - TRUE
-   - Coding has been a long time passion of mine and remains to this date - TRUE
-   -      Got quite a bit of experience
-
-   - w.r.t to coding I love real time applications. I go about my code w/ a from scratch mentality (low dependencies)
-   - In recent times I am exploring A.I. and the entire world surrounding this
-
-   - I have not played around w/ VR, but it remains ultimately cool to me
-
-   - Mechatronics -> Electrical Engineering
-
-   - Physics? - EXCITED
-
-   - Iffy on electrical engineering -> picked because "circuits are important and integral to all designs"
-
-
-  I'm an aspiring maker Engineering Physics student , which means . I hope to build some seriously
-  cool (and useful) things one day. In the meantime, I've got a nicely sized library of programming
-  projects worth !
-
-*/
+import AppContext from "../lib/AppContext.js"
 
 function SpringContainer(props) {
-
-  var height_const = (isMobile) ? 51 : 88
 
   const _props = useSpring({
     to: async (next, cancel) => {
@@ -51,7 +21,7 @@ function SpringContainer(props) {
       while (1) {
         await delay(2500);
         console.log("Waited 2.5s after animation");
-        await next({scroll: count * height_const})
+        await next({scroll: count * props.height_const})
         count += 1;
       }
     },
@@ -61,8 +31,8 @@ function SpringContainer(props) {
   return (
     <animated.div style={{
       overflow: "hidden",
-      height: height_const
-    }} scrollTop={ _props.scroll.interpolate( (x) => (x % (height_const * 7)) ) }>
+      height: props.height_const
+    }} scrollTop={ _props.scroll.interpolate( (x) => (x % (props.height_const * 7)) ) }>
       <h2>&nbsp;👨‍💻 C\C++</h2>
       <h2>&nbsp;🐍 Python</h2>
       <h2>&nbsp;🧠 Tensorflow</h2>
@@ -81,17 +51,20 @@ function SpringContainer(props) {
 } */
 
 class Marketing extends React.Component {
+
+  static contextType = AppContext;
+
   render() {
     return (
 
       <div style={{
         position: "relative",
         width: "100%",
-        height: (isMobile) ? 450 : 800
+        height: (isMobile(this.context)) ? 450 : 800
       }}>
         <div style={{fontSize: "1.3em", margin: 40, position: "absolute"}}>
           <span class="AccentText">Hi 👋 I'm,</span>
-          <div style={{fontSize: (isMobile) ? "1.5em" : "2.0em", lineHeight: 1}}>
+          <div style={{fontSize: (isMobile(this.context)) ? "1.5em" : "2.0em", lineHeight: 1}}>
             <h1 style={{margin: 0, fontWeight: "normal"}}>{this.props.name}</h1>
           </div>
 
@@ -100,7 +73,7 @@ class Marketing extends React.Component {
               fontSize: "1.0em"
             }} >
               <h2>I build things with</h2>
-              <SpringContainer />
+              <SpringContainer height_const={51} />
             </div>
           </MobileView>
           <BrowserView>
@@ -110,7 +83,7 @@ class Marketing extends React.Component {
               flexDirection: "row"
             }} >
               <h2>I build things with</h2>
-              <SpringContainer />
+              <SpringContainer height_const={88} />
             </div>
           </BrowserView>
 

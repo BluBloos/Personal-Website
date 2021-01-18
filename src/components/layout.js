@@ -15,7 +15,7 @@ import {
   MobileView,
   isBrowser,
   isMobile
-} from "react-device-detect";
+} from "../lib/mobile.js";
 
 const ListLink = props => (
   <li style={{ display: `inline-block`, marginRight: `1rem` }}>
@@ -131,6 +131,7 @@ function GetNavMenu(props) {
 }
 
 class Layout extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {scrollpos: 0, navOpen: false};

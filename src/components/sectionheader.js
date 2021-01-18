@@ -2,10 +2,6 @@ import React from "react"
 
 import { ACCENT_COLOR } from "../styles/colors.js"
 
-import {
-  isMobile
-} from "react-device-detect";
-
 class SectionHeader extends React.Component {
 
   render() {
