@@ -120,6 +120,16 @@ class Marketing extends React.Component {
             Just an avid coder, and an apsiring maker.
           </p>
 
+          <div style={{
+            paddingTop: 20
+          }}>
+            <a href="mailto:noah.cabral@queensu.ca">
+              <button>
+                Contact
+              </button>
+            </a>
+          </div>
+
         </div>
 
         <BrowserView>
