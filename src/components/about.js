@@ -12,7 +12,8 @@ export default function About(props) {
       display: "flex",
       flexDirection: "row",
       alignItems: "flex-start",
-      flexWrap: "wrap"
+      flexWrap: "wrap",
+      margin: (isMobile) ? 0 : "100px 100px 200px 100px"
     }}>
 
       <div>
