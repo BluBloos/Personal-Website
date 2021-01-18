@@ -25,10 +25,10 @@ function PokemonDemoPlayer(props) {
         </iframe>
         <pre class="CodeFont">{
           `NOTE: The game might take a while to load.
+
 The controls are:
 - WASD to move
 - Z to get through menus and interact with things
-- F to go full screen
 
 Attach a gamepad to play as player 2:
 - Functionality is not guarenteed as I do not have a wide array of gamepads to test
