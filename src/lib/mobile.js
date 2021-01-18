@@ -21,7 +21,7 @@ class BrowserView extends React.Component {
     if (typeof window !== `undefined`) {
       this.state = {width: window.innerWidth};
     } else {
-      this.state = {width: Infinity};
+      this.state = {app: {width: Infinity}};
     }
   }
 
@@ -29,6 +29,8 @@ class BrowserView extends React.Component {
     if (typeof window !== `undefined`) {
       window.addEventListener('resize', this.updateWindowSize);
     }
+
+    this.updateWindowSize();
   }
 
   componentWillUnmount() {
@@ -61,7 +63,7 @@ class MobileView extends React.Component {
     if (typeof window !== `undefined`) {
       this.state = {width: window.innerWidth};
     } else {
-      this.state = {width: Infinity};
+      this.state = {app: {width: Infinity}};
     }
   }
 
@@ -69,6 +71,8 @@ class MobileView extends React.Component {
     if (typeof window !== `undefined`) {
       window.addEventListener('resize', this.updateWindowSize);
     }
+
+    this.updateWindowSize();
   }
 
   componentWillUnmount() {
