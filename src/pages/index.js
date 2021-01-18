@@ -52,15 +52,6 @@ class Home extends React.Component {
 
       this.updateWindowSize(window.innerWidth); // set state
 
-      if (isMobile(this.state.app)) {
-        this.updateWindowSize(1000); // toggle to change the state, forcing render
-      } else {
-        this.updateWindowSize(0);
-      }
-
-      this.updateWindowSize(window.innerWidth); // go back
-
-      this.forceUpdate(); // final force for good measure
     }
   }
 
