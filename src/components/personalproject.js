@@ -16,7 +16,7 @@ export default function PersonalProject(props) {
     <AppContext.Consumer>
       { context => (
           <div style={{
-          width: (isMobile(context)) ? "auto" : "35em"
+            maxWidth: "35em"
           }}>
             <p style={{
               margin: (isMobile(context)) ? "1em 0px 1em 0px" : "40px",
@@ -33,17 +33,23 @@ export default function PersonalProject(props) {
     <AppContext.Consumer>
       { context => (
           <div style={{
-            margin: "40px 0px 40px 0px",
-            borderRadius: 20,
-            boxShadow: "0px 0px 25px 1px lightgrey",
-            backgroundImage: `url(${props.thumb})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            width: isMobile(context) ? "100%" : "auto",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center"
           }}>
             <div style={{
-              width: (isMobile(context)) ? "100%" : 520,
-              height: (isMobile(context)) ? 180 : 380 ,
+              maxWidth: 520,
+              position: "relative",
+              borderRadius: 20,
+              boxShadow: "0px 0px 25px 1px lightgrey",
+              margin: "40px 0px 40px 0px"
             }}>
+              <img src={props.thumb} style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: 20,
+              }}/>
             </div>
           </div>
         )
@@ -59,6 +65,20 @@ export default function PersonalProject(props) {
 
   return (
     <div>
+    {/*<div style={{
+      margin: "40px 0px 40px 0px",
+      borderRadius: 20,
+      boxShadow: "0px 0px 25px 1px lightgrey",
+      backgroundImage: `url(${props.thumb})`,
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+    }}>
+      <div style={{
+        width: (isMobile(context)) ? "100%" : 520,
+        height: (isMobile(context)) ? 180 : 380 ,
+      }}>
+      </div>
+    </div>*/}
       <BrowserView>
         <div style={{
           color: TEXT_COLOR_SECONDARY
@@ -82,6 +102,7 @@ export default function PersonalProject(props) {
           display: "flex",
           flexDirection: "column",
           flexWrap: "wrap",
+          alignItems: "center"
         }}>
           {elem1}
           {elem2}

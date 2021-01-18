@@ -81,7 +81,7 @@ class Home extends React.Component {
               }}><SectionHeader num="02" name="Projects" /></span>
             </div>**/}
             <SectionHeader num="02" name="Projects" />
-            <Projects numprojects={3}/>
+            <Projects numprojects={3} isMobile={isMobile(this.state.app)}/>
 
             <div style={{
               width: "100%",
@@ -90,7 +90,7 @@ class Home extends React.Component {
               justifyContent: "center",
               marginTop: 100
             }}>
-              <svg height="2" width="600">
+              <svg height="2" width={isMobile(this.state.app) ? "200" : "600"}>
                 <line x1="0" y1="0" x2="600" y2="0" style={{strokeWidth: 2, stroke: TEXT_COLOR_SECONDARY}} />
               </svg>
             </div>
@@ -98,7 +98,7 @@ class Home extends React.Component {
             <div style={{
               margin: (isMobile(this.state.app)) ? "0px 0px 200px 0px" : "40px 40px 200px 40px"
             }}>
-              <SectionHeader num="03" name="Contact" center={(isMobile(this.state.app)) ? false : true} />
+              <SectionHeader num="03" name="Contact" center={true} />
               <Contact />
             </div>
 

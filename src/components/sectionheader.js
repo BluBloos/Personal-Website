@@ -12,7 +12,8 @@ class SectionHeader extends React.Component {
       _style = {
         display: "flex",
         flexDirection: "row",
-        justifyContent: "center"
+        justifyContent: "center",
+        width: "100%"
       }
     }
 
@@ -25,14 +26,15 @@ class SectionHeader extends React.Component {
           width: "100%"
         }} />
 
-        <div style={_style}>
-          <div style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "flex-end",
-            fontSize: "2em",
-            marginLeft: 40
-          }}>
+
+        <div style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-end",
+          fontSize: "2em",
+          marginLeft: (this.props.center) ? 0 : 40
+        }}>
+          <div style={_style}>
             <h1>
               <span style={{color: ACCENT_COLOR}} class="CodeFont">{this.props.num}.</span>
               &nbsp;{this.props.name}

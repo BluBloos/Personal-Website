@@ -130,19 +130,27 @@ export default function Projects(props) {
 
           <div style={{
             color: TEXT_COLOR_SECONDARY,
-            margin: (props.isMobile) ?  0 : 40
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}>
-            <p>
-              PokemonDemo is a video game demo written completly in C, with little to no library usasge.
-              This means that all file types are parsed manually, each pixel is individually blit to the screen, and each sample of sound is given thought.
-              Everything from memory management, a custom tile map system, to custom asset support is packed into this bundle of joy.
-              Key features include: Hot reloading, live looping (desktop version only), and a custom tile map editor!
-            </p>
-            <p>
-              TLDR; I've gone ahead and ported the game for the web, have a play! <br />
-              <br />
-              &nbsp; &nbsp; &nbsp; P.S. See if you can find the easter eggs!
-            </p>
+            <div style={{
+              maxWidth: (!props.isMobile) ? "100%" : "30em",
+              padding: (props.isMobile) ? 0 : 40
+            }}>
+              <p>
+                PokemonDemo is a video game demo written completly in C, with little to no library usasge.
+                This means that all file types are parsed manually, each pixel is individually blit to the screen, and each sample of sound is given thought.
+                Everything from memory management, a custom tile map system, to custom asset support is packed into this bundle of joy.
+                Key features include: Hot reloading, live looping (desktop version only), and a custom tile map editor!
+              </p>
+              <p>
+                TLDR; I've gone ahead and ported the game for the web, have a play! <br />
+                <br />
+                { (!props.isMobile) ? <span>&nbsp; &nbsp; &nbsp;</span> : <span />} P.S. See if you can find the easter eggs!
+              </p>
+            </div>
           </div>
 
           <div style={{
