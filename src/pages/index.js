@@ -40,18 +40,37 @@ class Home extends React.Component {
     }
   }
 
-  updateWindowSize = (width) => {
-    this.setState({
-      app: { width }
-    });
+  updateWindowSize = () => {
+    if (typeof window !== `undefined`) {
+      this.setState({
+        app: { width: window.innerWidth }
+      });
+    }
   }
 
   componentDidMount() {
     if (typeof window !== `undefined`) {
       window.addEventListener('resize', this.updateWindowSize);
 
-      this.updateWindowSize(window.innerWidth); // set state
+      this.setState({
+        app: { width: window.innerWidth }
+      });
 
+      if (isMobile(this.state.app)) {
+        this.setState({
+          app: { width: 1000 }
+        });
+      } else {
+        this.setState({
+          app: { width: 0 }
+        });
+      }
+
+      this.setState({
+        app: { width: window.innerWidth }
+      });
+
+      this.forceUpdate(); // final force for good
     }
   }
 
