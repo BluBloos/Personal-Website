@@ -33,21 +33,31 @@ class Home extends React.Component {
     if (typeof document !== `undefined`) {
       AOS.init();
     }
-    this.state = { app : {width: window.innerWidth} };
+    if (typeof window !== `undefined`) {
+      this.state = { app : {width: window.innerWidth} };
+    } else {
+      this.state = { app: {width: 0} };
+    }
   }
 
   updateWindowSize = () => {
     var newState = this.state;
-    newState.app.width = window.innerWidth;
+    if (typeof window !== `undefined`) {
+      newState.app.width = window.innerWidth;
+    }
     this.setState(newState);
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateWindowSize);
+    if (typeof window !== `undefined`) {
+      window.addEventListener('resize', this.updateWindowSize);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.updateWindowSize);
+    if (typeof window !== `undefined`) {
+      window.removeEventListener('scroll', this.updateWindowSize);
+    }
   }
 
   render() {

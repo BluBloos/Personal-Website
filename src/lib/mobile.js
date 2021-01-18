@@ -18,21 +18,31 @@ export function isBrowser(context) {
 class BrowserView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {width: window.innerWidth};
+    if (typeof window !== `undefined`) {
+      this.state = {width: window.innerWidth};
+    } else {
+      this.state = {width: 0};
+    }
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateWindowSize);
+    if (typeof window !== `undefined`) {
+      window.addEventListener('resize', this.updateWindowSize);
+    }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowSize);
+    if (typeof window !== `undefined`) {
+      window.removeEventListener('resize', this.updateWindowSize);
+    }
   }
 
   updateWindowSize = () => {
-    this.setState({
-      width: window.innerWidth
-    })
+    var newState = this.state;
+    if (typeof window !== `undefined`) {
+      newState.width = window.innerWidth;
+    }
+    this.setState(newState);
   }
 
   render() {
