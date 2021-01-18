@@ -68,6 +68,18 @@ class Home extends React.Component {
           <Projects numprojects={3}/>
 
           <div style={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            marginTop: 100
+          }}>
+            <svg height="2" width="600">
+              <line x1="0" y1="0" x2="600" y2="0" style={{strokeWidth: 2, stroke: TEXT_COLOR_SECONDARY}} />
+            </svg>
+          </div>
+
+          <div style={{
             margin: (isMobile) ? "0px 0px 200px 0px" : "40px 40px 200px 40px"
           }}>
             <SectionHeader num="03" name="Contact" center={(isMobile) ? false : true} />
