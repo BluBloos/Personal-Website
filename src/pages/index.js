@@ -52,6 +52,7 @@ class Home extends React.Component {
     }
 
     this.updateWindowSize();
+    this.forceUpdate();
   }
 
   componentWillUnmount() {
