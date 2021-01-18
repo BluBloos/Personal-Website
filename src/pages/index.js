@@ -36,7 +36,7 @@ class Home extends React.Component {
     if (typeof window !== `undefined`) {
       this.state = { app : {width: window.innerWidth} };
     } else {
-      this.state = { app: {width: 0} };
+      this.state = { app: {width: Infinity} };
     }
   }
 
