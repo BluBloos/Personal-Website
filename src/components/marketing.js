@@ -87,7 +87,7 @@ class Marketing extends React.Component {
       <div style={{
         position: "relative",
         width: "100%",
-        height: (isMobile) ? 450 : 660
+        height: (isMobile) ? 450 : 800
       }}>
         <div style={{fontSize: "1.3em", margin: 40, position: "absolute"}}>
           <span class="AccentText">Hi 👋 I'm,</span>
