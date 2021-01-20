@@ -35,7 +35,7 @@ class Home extends React.Component {
       AOS.init();
     }
 
-    this.state = { app: {width: Infinity} };
+    this.state = { app: {width: 0} };
   }
 
   updateWindowSize = () => {
