@@ -32,7 +32,7 @@ function GetNavLinks() {
   items.push(<div style={{paddingLeft: 20}}><span>01. </span><Link to="/#About">About</Link></div>);
   items.push(<div style={{paddingLeft: 20}}><span>02. </span><Link to="/#Projects">Projects</Link></div>);
   items.push(<div style={{paddingLeft: 20}}><span>03. </span><Link to="/#Contact">Contact</Link></div>);
-  items.push(<div style={{paddingLeft: 20}}><button>Resume</button></div>);
+  items.push(<div style={{paddingLeft: 20}}><a href="/ncabral.pdf" target="_blank"><button>Resume</button></a></div>);
   return items;
 }
 
