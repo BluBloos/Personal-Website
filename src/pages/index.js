@@ -34,27 +34,29 @@ class Home extends React.Component {
     if (typeof document !== `undefined`) {
       AOS.init();
     }
-    if (typeof window !== `undefined`) {
-      this.state = { app : {width: window.innerWidth} };
-    } else {
-      this.state = {app: {width: Infinity}};
-    }
+
+    this.state = { app: {width: Infinity} };
   }
 
   updateWindowSize = () => {
-    if (typeof window !== `undefined`) {
-      this.setState({
-        app: { width: window.innerWidth }
-      });
-      this.forceUpdate();
-    }
+    this.setState({
+      app: { width: window.innerWidth }
+    });
+  }
+
+  componentDidMount() {
+    this.updateWindowSize(); // set width
+    window.addEventListener('resize', this.updateWindowSize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowSize);
   }
 
   render() {
     return (
       <AppContext.Provider value={this.state.app}>
         <Layout>
-          <BrowserView src={this.updateWindowSize} />
           <Helmet>
             <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
